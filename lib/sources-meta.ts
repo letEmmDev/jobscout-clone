@@ -38,6 +38,7 @@ export const SOURCES_META: SourceMeta[] = [
   { id: "hellowork", label: "HelloWork", sublabel: "Ex-RegionsJob (France)", scope: "fr" },
   { id: "francetravail", label: "France Travail", sublabel: "Ex-Pôle Emploi (France)", scope: "fr" },
   { id: "talent", label: "Talent.com", sublabel: "Francophonie · Canada · USA", scope: "world" },
+  { id: "freework", label: "Free-Work", sublabel: "Emploi & missions IT", scope: "world" },
 ];
 
 export const SOURCE_IDS = SOURCES_META.map((s) => s.id);

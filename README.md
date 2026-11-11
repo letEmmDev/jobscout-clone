@@ -57,7 +57,7 @@ L'app démarre sur http://127.0.0.1:3000 (écoute limitée à la machine locale,
 
 `npm run package` produit `installer/output/JobScout_Setup_<version>.exe` : un installeur autonome (Node 22 LTS embarqué, aucune dépendance sur la machine cible), avec launcher natif, données sous `%LOCALAPPDATA%\JobScout` et contrôle anti-fuite de données personnelles bloquant. Voir [`installer/README.md`](installer/README.md).
 
-## Sources de scan (6 actives)
+## Sources de scan (7 actives)
 
 | Source | Méthode | Périmètre |
 |--------|---------|-----------|
@@ -67,9 +67,12 @@ L'app démarre sur http://127.0.0.1:3000 (écoute limitée à la machine locale,
 | HelloWork | HTML SSR + JSON-LD | France |
 | France Travail | API officielle si `FT_CLIENT_ID` / `FT_CLIENT_SECRET` sont définis (https://francetravail.io), sinon HTML SSR | France |
 | Talent.com | HTML SSR multi-domaines + JSON-LD | France, Belgique, Suisse, Luxembourg, Canada, USA, Maroc, Tunisie, Sénégal |
+| Free-Work | API publique de recherche et de détail | Offres et missions IT, filtrées par pays cibles |
 | Civiweb (V.I.E) | API Business France — **suspendue** : elle exige désormais une authentification que JobScout ne gère pas | International |
 
 Chaque source s'active ou se désactive dans Profil › Sources (ou à l'étape Préférences de l'onboarding). Une source hors périmètre géographique (ex. APEC quand le profil ne cible pas la France) est automatiquement sautée. La disponibilité des sources dépend des sites tiers (anti-bot, changements d'API) ; une source en échec est signalée dans le journal du scan.
+
+Pour un profil existant, activez Free-Work dans Profil › Sources. « Postuler » ouvre l'annonce sur Free-Work : la candidature est ensuite à finaliser sur ce site.
 
 WTTJ est interrogée avec la clé de recherche publique (lecture seule) du site ; si elle change, fournissez `WTTJ_ALGOLIA_APP` / `WTTJ_ALGOLIA_KEY`.
 
@@ -110,7 +113,7 @@ Coût : avec Claude (Anthropic), environ 0,12 à 0,20 $ par dossier (CV + lettre
 
 | | Gratuit (ce dépôt) | Pro (en préparation) |
 |---|---|---|
-| Scan 6 sources + scoring local | illimité | illimité |
+| Scan 7 sources + scoring local | illimité | illimité |
 | CV / lettre / message IA | avec **votre** clé (fournisseur au choix) ou un modèle local | crédits inclus via le relais JobScout, sans clé |
 | Installation | Node ≥ 22.13 + `npm ci` | installeur Windows autonome |
 | Mises à jour | `git pull` | notification dans l'application |

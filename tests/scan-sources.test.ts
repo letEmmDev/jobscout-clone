@@ -30,7 +30,7 @@ vi.mock("@/lib/scrapers/registry", () => {
     },
   });
   return {
-    VALID_SOURCES: ["wttj", "linkedin", "civiweb", "apec", "hellowork", "francetravail", "talent"],
+    VALID_SOURCES: ["wttj", "linkedin", "civiweb", "apec", "hellowork", "francetravail", "talent", "freework"],
     getEnabledScrapers: (ids: string[]) => ids.map(fake),
   };
 });
